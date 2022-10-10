@@ -1,0 +1,28 @@
+--Create a makeup store database
+
+CREATE TABLE qianmakeup (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, inventory INTEGER, ratings INTEGER);
+
+INSERT INTO qianmakeup VALUES (1, "foundation", 20.00, 150, 7.5);
+INSERT INTO qianmakeup VALUES (2, "powder", 18.00, 200, 8.5);
+INSERT INTO qianmakeup VALUES (3, "blush", 15.00, 300, 6.5);
+INSERT INTO qianmakeup VALUES (4, "eyeliner", 10.00, 120,8.9);
+INSERT INTO qianmakeup VALUEs (5, "lipstick", 13.05, 800, 9.5);
+INSERT INTO qianmakeup VALUES (6, "lipgloss", 10.50, 600, 7.8);
+INSERT INTO qianmakeup VALUES (7, "bronzer", 16.75, 800, 8.0);
+INSERT INTO qianmakeup VALUES (8, "contour", 12.78, 500, 5.0);
+INSERT INTO qianmakeup VALUES (9, "highlighter", 8.50, 550, 8.7);
+INSERT INTO qianmakeup VALUES (10, "primer", 17.50, 600, 7.5);
+INSERT INTO qianmakeup VALUES (11, "concealer", 6.70, 800, 9.5);
+INSERT INTO qianmakeup VALUES (12, "nail polish", 5.50, 1200, 10);
+INSERT INTO qianmakeup VALUES (13, "mascara", 13.40, 700, 8.5);
+INSERT INTO qianmakeup VALUES (14, "face mist", 16.00, 600, 7.0);
+INSERT INTO qianmakeup VALUES (15, "brushes", 35.00, 500, 8.7);
+
+-- display the databse ordered by price
+SELECT * FROM qianmakeup ORDER BY price desc;
+
+--what are the most 5 high rated items?
+SELECT item, price, ratings
+From qianqianmakeup
+order by ratings desc
+limit 5;
