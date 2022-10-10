@@ -21,6 +21,11 @@ INSERT INTO qianmakeup VALUES (15, "brushes", 35.00, 500, 8.7);
 -- display the databse ordered by price
 SELECT * FROM qianmakeup ORDER BY price desc;
 
+--what is the avg price of items that inventory is under 500?
+SELECT AVG(price) "avg price"
+FROM qianqianmakeup
+where inventory<500;
+
 --what are the most 5 high rated items?
 SELECT item, price, ratings
 From qianqianmakeup
