@@ -37,3 +37,9 @@ From BIT_DB.FebSales
 Left join BIT_DB.customers
 On FebSales.orderID=customers.order_id
 Where FebSales.Quantity >2;
+
+#8 List all the products sold in Los Angeles in February, and include how many of each were sold.
+Select Product, sum(Quantity)
+From BIT_DB.FebSales
+Where location Like Location='%Los Angeles%'
+Group by Product;
