@@ -63,3 +63,7 @@ From BIT_DB.JanSales
 Group by Product
 Order by sum(quantity*price) desc
 Limit 1;
+
+#12 What was the average amount spent per account in February?
+
+#13 What was the average quantity of products purchased per account in February?
