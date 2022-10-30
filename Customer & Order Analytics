@@ -65,5 +65,13 @@ Order by sum(quantity*price) desc
 Limit 1;
 
 #12 What was the average amount spent per account in February?
+Select avg(quantity*price)
+From BIT_DB.FebSales Feb
+Left join BIT_DB.customers cust
+On Feb.orderID=cust.order_id;
 
 #13 What was the average quantity of products purchased per account in February?
+Select sum(quantity)/count(cust.acctnum)
+From BIT_DB.FebSales Feb
+Left join BIT_DB.customers cust
+On Feb.orderID=cust.order_id;
