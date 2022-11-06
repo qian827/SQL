@@ -47,7 +47,9 @@ From BIT_DB.SpotifyData
 Order by popularity desc
 Limit 10;
 
-#Calculate the average popularity for the artists in the Spotify data table. Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
+#Calculate the average popularity for the artists in the Spotify data table. Then, for every artist with an average popularity of 90 or above,
+show their name, their average popularity, and label them as a “Top Star”.
+ 
 With popularity_average_CTE As (
 Select s.artist_name,
 Avg(s.popularity)as average_popularity
