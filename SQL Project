@@ -61,3 +61,14 @@ Select t.Name, i.InvoiceLineId
 From chinook.invoice_items i
 Join chinook.tracks t
 On i.TrackId=t.TrackId;
+
+#11 Write a query that includes the purchased track name AND artist name with each invoice line ID.
+
+Select t.Name as track, ar.name as Artist, i.InvoiceLineId
+From chinook.invoice_items i
+Left Join chinook.tracks t
+On i.TrackId=t.TrackId
+Inner join chinook.albums a
+On a.AlbumId=t.AlbumId
+Left join chinook.artists ar
+On ar.ArtistId=a.ArtistId;
