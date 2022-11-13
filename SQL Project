@@ -1,0 +1,63 @@
+#1 Show Customers (their full names, customer ID, and country) who are not in the US. 
+
+Select FirstName, LastName, CustomerID, Country
+From chinook.customers
+Where Country != "USA";
+
+#2 Show only the Customers from Brazil.
+
+Select * From chinook.customers
+Where Country= 'Brazil';
+
+#3 Find the Invoices of customers who are from Brazil. The resulting table should show 
+the customer's full name, Invoice ID, Date of the invoice, and billing country.
+
+Select cust.FirstName, cust.LastName,inv.InvoiceId, inv.InvoiceDate, inv.BillingCountry
+From chinook.invoices as inv
+Left join chinook.customers as cust
+On inv.CustomerID= cust.CustomerId
+Where inv.BillingCountry="Brazil";
+
+#4 Show the Employees who are Sales Agents.
+
+Select * From chinook.employees
+Where Title="Sales Support Agent";
+
+#5 Find a unique/distinct list of billing countries from the Invoice table.
+
+Select distinct BillingCountry From chinook.invoices;
+
+#6Provide a query that shows the invoices associated with each sales agent. 
+The resulting table should include the Sales Agent's full name.
+
+Select emp.LastName, emp.FirstName,inv.InvoiceId
+From chinook.employees emp
+Join chinook.customers cust On cust.SupportRepId= emp.employeeId
+Join chinook.invoices inv On inv.CustomerId= cust.CustomerId;
+
+#7 Show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices 
+and customers.
+
+Select inv.Total, cust.FirstName, cust.LastName, cust.Country, emp.FirstName, emp.LastName
+From chinook.employees emp
+Join chinook.customers cust On cust.SupportRepId=emp.EmployeeId
+Join chinook.invoices inv On inv.CustomerId= cust.CustomerId;
+
+#8 How many Invoices were there in 2009?
+
+Select Count(*)
+From chinook.invoices
+Where InvoiceDate Between '2009-01-01' And '2009-12-31';
+
+#9 What are the total sales for 2009?
+
+Select sum(Total)
+From chinook.invoices
+Where InvoiceDate Between '2009-01-01' And '2009-12-31';
+
+#10 Write a query that includes the purchased track name with each invoice line ID.
+
+Select t.Name, i.InvoiceLineId
+From chinook.invoice_items i
+Join chinook.tracks t
+On i.TrackId=t.TrackId;
