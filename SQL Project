@@ -72,3 +72,14 @@ Inner join chinook.albums a
 On a.AlbumId=t.AlbumId
 Left join chinook.artists ar
 On ar.ArtistId=a.ArtistId;
+
+#12 Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
+
+Select t.Name as 'trackname', a.Title as 'album title', m.Name as 'Media type', g.Name as 'genre'
+From chinook.tracks t
+Join chinook.albums a
+On a.AlbumId= t.AlbumID
+Join chinook.media_types m
+On m.MediaTypeId= t.MediaTypeId
+Join chinook.genres g
+On g.GenreId= t.GenreId;
