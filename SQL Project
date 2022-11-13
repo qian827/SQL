@@ -83,3 +83,18 @@ Join chinook.media_types m
 On m.MediaTypeId= t.MediaTypeId
 Join chinook.genres g
 On g.GenreId= t.GenreId;
+
+#13 Show the total sales made by each sales agent.
+
+Select emp.LastName, emp.FirstName,
+Round (sum(inv.Total),2) as 'total  sales'
+From chinook.employees emp
+
+Join chinook.customers cust
+On cust.SupportRepId= emp.EmployeeId
+
+Join chinook.invoices inv
+On inv.CustomerId= cust.CustomerId
+
+Where emp.Title= 'Sales Support Agent'
+Group by emp.FirstName;
