@@ -102,7 +102,7 @@ Group by emp.FirstName;
 #14 Which sales agent made the most dollars in sales in 2009?
 
 Select emp.FirstName, emp.LastName,
-Round(sum(inv.Total),2) as 'total  sales'
+Round(sum(inv.Total),2) as 'total sales'
 From chinook.employees emp
 
 Join chinook.customers cust
@@ -113,5 +113,5 @@ On inv.CustomerId= cust.CustomerId
 
 Where emp.Title= 'Sales Support Agent'
 And inv.InvoiceDate Like '2009%'
-Group by emp.FirstName;
+Group by emp.FirstName
 Order by (Round(sum(inv.Total),2)) Desc Limit 1;
