@@ -27,7 +27,7 @@ Where Title="Sales Support Agent";
 
 Select distinct BillingCountry From chinook.invoices;
 
-#6Provide a query that shows the invoices associated with each sales agent. 
+#6 Provide a query that shows the invoices associated with each sales agent. 
 The resulting table should include the Sales Agent's full name.
 
 Select emp.LastName, emp.FirstName,inv.InvoiceId
